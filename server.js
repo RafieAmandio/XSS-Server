@@ -1,8 +1,15 @@
 const express = require('express');
 const fs = require('fs').promises;
 const path = require('path');
+const cors = require('cors');
 const app = express();
 const port = 3000;
+
+app.use(cors({
+    origin: '*', // Allow all origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow all methods
+    allowedHeaders: ['Content-Type', 'Authorization'] // Allow these headers
+}));
 
 // Ensure public directory exists
 const publicDir = path.join(__dirname, 'public');
