@@ -31,7 +31,7 @@ app.use('/public', express.static('public'));
 // GET route to receive data
 app.get('/api', async (req, res) => {
     const receivedData = req.query.data;
-ECHO is off.
+
     if (!receivedData) {
         return res.status(400).json({
             error: 'Data parameter is required'
@@ -41,7 +41,7 @@ ECHO is off.
     try {
         // Read existing data
         const existingData = JSON.parse(await fs.readFile(dataFile, 'utf8'));
-ECHO is off.
+
         // Add new data entry
         const newEntry = {
             data: receivedData,
